@@ -12,6 +12,7 @@ public class GetProductCount {
     public static void main(String[] args) {
         // Dependencies
         ProductDao dao;
+        ProductDao dao2;
 
         // Instance of Spring IoC
         AnnotationConfigApplicationContext context =
@@ -22,6 +23,7 @@ public class GetProductCount {
         // Retrieving Beans from Spring Context
         // dao = context.getBean("dummyProductDao", ProductDao.class);
         dao = context.getBean("jdbcProductDao", ProductDao.class);
+        dao2 = context.getBean("jdbcProductDao", ProductDao.class);
 
         System.out.println("================== ");
 
@@ -29,6 +31,12 @@ public class GetProductCount {
         System.out.println("Dao is an Instance of : "
                 + dao.getClass().getName());
         System.out.println("There are " + dao.count() + " Products");
+
+        // Verify Singleton Profile used by default by Spring IoC
+        System.out.println("Verify Singleton Profile used by default by " +
+                "Spring IoC\n" +
+                "dao == dao2 is " + (dao == dao2));
+
 
 
         context.close();
