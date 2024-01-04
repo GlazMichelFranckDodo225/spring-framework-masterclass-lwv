@@ -4,12 +4,13 @@ import com.dgmf.basics.dao.impl.DummyProductDao;
 import com.dgmf.basics.dao.impl.JdbcProductDao;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Scope;
 
 @Configuration
-public class AppAnnotationBasedConfig {
-    public AppAnnotationBasedConfig() {
+public class AppJavaBasedConfig {
+    public AppJavaBasedConfig() {
         // Just to Trace the Application
-        System.out.println("AppAnnotationBasedConfig Instantiated ...");
+        System.out.println("AppJavaBasedConfig Instantiated ...");
     }
 
     @Bean
@@ -20,6 +21,7 @@ public class AppAnnotationBasedConfig {
         return new DummyProductDao();
     }
 
+    @Scope("prototype")
     @Bean
     public JdbcProductDao jdbcProductDao() {
         // Just to Trace the Application
