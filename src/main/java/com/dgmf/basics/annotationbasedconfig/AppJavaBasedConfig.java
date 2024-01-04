@@ -4,6 +4,7 @@ import com.dgmf.basics.dao.impl.DummyProductDao;
 import com.dgmf.basics.dao.impl.JdbcProductDao;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 
 @Configuration
@@ -13,6 +14,7 @@ public class AppJavaBasedConfig {
         System.out.println("AppJavaBasedConfig Instantiated ...");
     }
 
+    @Lazy
     @Bean
     public DummyProductDao dummyProductDao() {
         // Just to Trace the Application
